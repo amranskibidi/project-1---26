@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amran Web | Toko Handphone Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="navbar">
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">AMRAN<span class="logo-accent">WEB</span></span>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#features">Fitur</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#location">Lokasi</a></li>
+                </ul>
+            </div>
+            <!-- 🔧 GANTI: Teks tombol CTA utama -->
+            <div class="btn-nav" onclick="scrollToProducts()">Beli Sekarang</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <!-- 🔧 GANTI: Badge promo/tagline singkat -->
+                <span class="badge-dot"></span> NEW ARRIVAL 2025
+            </div>
+            <h1 class="hero-title">
+                <!-- 🔧 GANTI: Judul utama hero section -->
+                Temukan HP<br>
+                <span class="gradient-text">Impian Anda</span>
+            </h1>
+            <!-- 🔧 GANTI: Sub-judul hero -->
+            <p class="hero-subtitle">Teknologi terdepan, harga terbaik.</p>
+            <div class="typing-container">
+                <span class="typing-label">Tersedia: </span>
+                <span class="typing-text" id="typingText"></span>
+                <span class="cursor">|</span>
+            </div>
+            <div class="hero-buttons">
+                <!-- 🔧 GANTI: Teks tombol hero -->
+                <button class="btn-primary" onclick="scrollToProducts()">Jelajahi Koleksi</button>
+                <button class="btn-secondary" onclick="scrollToContact()">Hubungi Kami</button>
+            </div>
+            <div class="hero-stats">
+                <!-- 🔧 GANTI: Statistik/angka toko Anda -->
+                <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Produk</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-num">10K+</span><span class="stat-label">Pelanggan</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-num">5★</span><span class="stat-label">Rating</span></div>
+            </div>
+        </div>
+
+        <!-- Slideshow HP -->
+        <div class="hero-visual">
+            <div class="phone-showcase">
+                <div class="phone-glow"></div>
+                <div class="phone-ring ring-1"></div>
+                <div class="phone-ring ring-2"></div>
+                <div class="phone-ring ring-3"></div>
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <!-- 4 Slide foto HP -->
+                        <div class="slide active" id="slide-0">
+                            <!--
+                            🔧 GANTI FOTO: Ganti src="" dengan path foto HP Anda
+                            Contoh: src="foto/hp1.jpg"
+                            Foto ideal: ukuran 400x600px, format JPG/PNG/WebP
+                            -->
+                            <img src="hp1.jpg" alt="Handphone 1" onerror="this.style.display='none'; this.parentNode.classList.add('no-img')">
+                            <div class="slide-placeholder">
+                                <div class="ph-icon">📱</div>
+                                <!-- 🔧 GANTI: Nama produk HP pertama -->
+                                <div class="ph-name">iPhone 16 Pro Max</div>
+                                <!-- 🔧 GANTI: Harga HP pertama -->
+                                <div class="ph-price">Rp 23.999.000</div>
+                            </div>
+                        </div>
+                        <div class="slide" id="slide-1">
+                            <!-- 🔧 GANTI: src foto HP ke-2 -->
+                            <img src="hp2.jpg" alt="Handphone 2" onerror="this.style.display='none'; this.parentNode.classList.add('no-img')">
+                            <div class="slide-placeholder">
+                                <div class="ph-icon">📱</div>
+                                <!-- 🔧 GANTI: Nama & harga HP ke-2 -->
+                                <div class="ph-name">Samsung S25 Ultra</div>
+                                <div class="ph-price">Rp 21.499.000</div>
+                            </div>
+                        </div>
+                        <div class="slide" id="slide-2">
+                            <!-- 🔧 GANTI: src foto HP ke-3 -->
+                            <img src="hp3.jpg" alt="Handphone 3" onerror="this.style.display='none'; this.parentNode.classList.add('no-img')">
+                            <div class="slide-placeholder">
+                                <div class="ph-icon">📱</div>
+                                <!-- 🔧 GANTI: Nama & harga HP ke-3 -->
+                                <div class="ph-name">Xiaomi 15 Pro</div>
+                                <div class="ph-price">Rp 12.999.000</div>
+                            </div>
+                        </div>
+                        <div class="slide" id="slide-3">
+                            <!-- 🔧 GANTI: src foto HP ke-4 -->
+                            <img src="hp4.jpg" alt="Handphone 4" onerror="this.style.display='none'; this.parentNode.classList.add('no-img')">
+                            <div class="slide-placeholder">
+                                <div class="ph-icon">📱</div>
+                                <!-- 🔧 GANTI: Nama & harga HP ke-4 -->
+                                <div class="ph-name">OPPO Find X8 Pro</div>
+                                <div class="ph-price">Rp 14.499.000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dot indikator slide -->
+                <div class="slide-dots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SCROLLING TICKER ========== -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <!-- 🔧 GANTI: Teks promosi di ticker berjalan -->
+            <span>✦ GRATIS ONGKIR SE-INDONESIA</span>
+            <span>✦ GARANSI RESMI 1 TAHUN</span>
+            <span>✦ CICILAN 0% 12 BULAN</span>
+            <span>✦ TUKAR TAMBAH DITERIMA</span>
+            <span>✦ LAYANAN 24 JAM</span>
+            <span>✦ GRATIS ONGKIR SE-INDONESIA</span>
+            <span>✦ GARANSI RESMI 1 TAHUN</span>
+            <span>✦ CICILAN 0% 12 BULAN</span>
+            <span>✦ TUKAR TAMBAH DITERIMA</span>
+            <span>✦ LAYANAN 24 JAM</span>
+        </div>
+    </div>
+
+    <!-- ========== PRODUK SECTION ========== -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <div class="section-tag">— KOLEKSI TERBARU —</div>
+            <!-- 🔧 GANTI: Judul section produk -->
+            <h2 class="section-title">Pilihan <span class="gradient-text">Premium</span></h2>
+            <!-- 🔧 GANTI: Deskripsi section produk -->
+            <p class="section-desc">Temukan smartphone terbaik dengan teknologi mutakhir dan harga yang kompetitif</p>
+        </div>
+        <div class="products-grid">
+
+            <!-- ===== KARTU PRODUK 1 ===== -->
+            <div class="product-card" data-slide="0">
+                <div class="card-badge">Best Seller</div>
+                <!-- 🔧 GANTI: Gambar produk kartu 1 (sama dengan slide 0) -->
+                <div class="card-img">
+                    <img src="hp1.jpg" alt="iPhone 16 Pro Max" onerror="this.style.display='none'">
+                    <div class="card-img-fallback">📱</div>
+                </div>
+                <div class="card-info">
+                    <!-- 🔧 GANTI: Brand, nama, spesifikasi, harga produk 1 -->
+                    <div class="card-brand">Apple</div>
+                    <div class="card-name">iPhone 16 Pro Max</div>
+                    <div class="card-specs">
+                        <span>256GB</span><span>6.9"</span><span>A18 Pro</span>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-price">
+                            <span class="price-old">Rp 25.000.000</span>
+                            <span class="price-new">Rp 23.999.000</span>
+                        </div>
+                        <button class="card-btn" onclick="buyNow('iPhone 16 Pro Max')">Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== KARTU PRODUK 2 ===== -->
+            <div class="product-card featured" data-slide="1">
+                <div class="card-badge hot">🔥 Hot Deal</div>
+                <!-- 🔧 GANTI: Gambar & info produk 2 -->
+                <div class="card-img">
+                    <img src="hp2.jpg" alt="Samsung S25 Ultra" onerror="this.style.display='none'">
+                    <div class="card-img-fallback">📱</div>
+                </div>
+                <div class="card-info">
+                    <div class="card-brand">Samsung</div>
+                    <div class="card-name">Galaxy S25 Ultra</div>
+                    <div class="card-specs">
+                        <span>512GB</span><span>6.8"</span><span>Snapdragon 8 Elite</span>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-price">
+                            <span class="price-old">Rp 23.000.000</span>
+                            <span class="price-new">Rp 21.499.000</span>
+                        </div>
+                        <button class="card-btn" onclick="buyNow('Samsung Galaxy S25 Ultra')">Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== KARTU PRODUK 3 ===== -->
+            <div class="product-card" data-slide="2">
+                <div class="card-badge new">New</div>
+                <!-- 🔧 GANTI: Gambar & info produk 3 -->
+                <div class="card-img">
+                    <img src="hp3.jpg" alt="Xiaomi 15 Pro" onerror="this.style.display='none'">
+                    <div class="card-img-fallback">📱</div>
+                </div>
+                <div class="card-info">
+                    <div class="card-brand">Xiaomi</div>
+                    <div class="card-name">Xiaomi 15 Pro</div>
+                    <div class="card-specs">
+                        <span>256GB</span><span>6.73"</span><span>Snapdragon 8 Elite</span>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-price">
+                            <span class="price-old">Rp 14.000.000</span>
+                            <span class="price-new">Rp 12.999.000</span>
+                        </div>
+                        <button class="card-btn" onclick="buyNow('Xiaomi 15 Pro')">Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== KARTU PRODUK 4 ===== -->
+            <div class="product-card" data-slide="3">
+                <div class="card-badge">Promo</div>
+                <!-- 🔧 GANTI: Gambar & info produk 4 -->
+                <div class="card-img">
+                    <img src="hp4.jpg" alt="OPPO Find X8 Pro" onerror="this.style.display='none'">
+                    <div class="card-img-fallback">📱</div>
+                </div>
+                <div class="card-info">
+                    <div class="card-brand">OPPO</div>
+                    <div class="card-name">Find X8 Pro</div>
+                    <div class="card-specs">
+                        <span>512GB</span><span>6.78"</span><span>Dimensity 9400</span>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-price">
+                            <span class="price-old">Rp 16.000.000</span>
+                            <span class="price-new">Rp 14.499.000</span>
+                        </div>
+                        <button class="card-btn" onclick="buyNow('OPPO Find X8 Pro')">Beli</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="features" id="features">
+        <div class="section-header">
+            <div class="section-tag">— KEUNGGULAN KAMI —</div>
+        
+            <h2 class="section-title">Mengapa <span class="gradient-text">Amran Web?</span></h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Garansi Resmi</h3>
+                <p>Semua produk bergaransi resmi distributor minimal 1 tahun penuh</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Pengiriman Cepat</h3>
+                <p>Pengiriman same-day untuk area kota dan 1-2 hari untuk luar kota</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3>Cicilan 0%</h3>
+                <p>Cicilan tanpa bunga hingga 12 bulan dengan berbagai kartu kredit</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Tukar Tambah</h3>
+                <p>Layanan tukar tambah HP lama dengan harga terbaik di kelasnya</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <div class="section-tag">— HUBUNGI KAMI —</div>
+        
+            <h2 class="section-title">Siap <span class="gradient-text">Membantu Anda</span></h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <div class="contact-label">Telepon / WhatsApp</div>
+                    
+                        <div class="contact-value">+62 851-8860-4704</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <!-- 🔧 GANTI: Email Anda -->
+                        <div class="contact-value">amranmandari@gmail.com</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <div class="contact-label">Lokasi Toko</div>
+                
+                        <div class="contact-value">Jl. Teknologi No. 88, Manado, Sulawesi Utara</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <div class="contact-label">Jam Operasional</div>
+                    
+                        <div class="contact-value">Senin – Sabtu: 09.00 – 21.00</div>
+                    </div>
+                </div>
+                <!-- Tombol WA -->
+                <a class="wa-btn" href="https://wa.me/6285166804704" target="_blank">
+            
+                    <span>💬</span> Chat WhatsApp
+                </a>
+            </div>
+            <div class="contact-form">
+                <div class="form-title">Kirim Pesan</div>
+                <div class="form-group">
+                  
+                    <input type="text" id="formName" placeholder="Nama Lengkap" class="form-input">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="formPhone" placeholder="Nomor WhatsApp" class="form-input">
+                </div>
+                <div class="form-group">
+                    <textarea id="formMsg" placeholder="Pesan Anda (misal: tanya stok, harga, dll)" class="form-input" rows="4"></textarea>
+                </div>
+                <button class="btn-primary full-width" onclick="sendMessage()">Kirim Pesan 🚀</button>
+            </div>
+        </div>
+    </section>
+>
+    <section class="location" id="location">
+        <div class="section-header">
+            <div class="section-tag">— LOKASI TOKO —</div>
+            <!-- 🔧 GANTI: Judul section lokasi -->
+            <h2 class="section-title">Temukan <span class="gradient-text">Toko Kami</span></h2>
+        </div>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63786.0!2d124.8421!3d1.4748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3287376f9e2f01f7%3A0xd4f693d3aeb5e2b2!2sManado%2C%20North%20Sulawesi!5e0!3m2!1sen!2sid!4v1"
+                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-icon">◈</span>
+            
+                <span>AMRAN<span class="logo-accent">WEB</span></span>
+            </div>
+            <!-- 🔧 GANTI: Tagline footer -->
+            <p class="footer-tagline">Smartphone Premium · Harga Terbaik · Layanan Terpercaya</p>
+            <div class="footer-socials">
+                <!-- 🔧 GANTI: Link social media Anda -->
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">TikTok</a>
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Tokopedia</a>
+            </div>
+        
+            <p class="footer-copy">© Amran website </p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-icon">🛒</div>
+            <h3 class="modal-title" id="modalTitle">Beli Sekarang</h3>
+            <p class="modal-desc">Hubungi kami via WhatsApp untuk pemesanan, cek stok, dan konfirmasi harga terbaik.</p>
+            <a class="btn-primary" id="modalWALink" href="#" target="_blank">Chat WhatsApp 💬</a>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
